@@ -4,10 +4,10 @@ console.log(socket);
 socket.on('connect', function () {
     // console.log(`Client is connected`);
     // socket.emit('createEmail', {to: "Lavanya.kashyap@kpit.com", text: "Heyyya!!"});
-    socket.emit('CreateMessage', {
-        from: "Client",
-        text: "Hello this is a create msessage event"
-    });
+    // socket.emit('CreateMessage', {
+    //     from: "Client",
+    //     text: "Hello this is a create msessage event"
+    // });
 
 });
 socket.on('disconnect', function () {
