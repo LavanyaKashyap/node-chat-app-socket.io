@@ -18,7 +18,8 @@ socket.on('disconnect', function () {
 //     console.log(emailData);
 // })
 socket.on('newMessage' , function(message){
-    console.log(`Recieved a message at client${message.text}`);
+    // console.log(`Recieved a message at client${message.text}`);
+    console.log(message)
 })
 
 

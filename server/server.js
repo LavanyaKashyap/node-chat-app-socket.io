@@ -11,7 +11,8 @@ var server = http.createServer(app);
 var io = socketIO(server);
 io.on('connection', (socket) => {
     console.log(`New user Connected ${socket}`);
-
+    io.emit('newMessage', `Welcome` );   //to create msg when new user connects
+    socket.broadcast.emit('newMessage', 'New user joined');
     // socket.emit('newEmail' , {
     //     from:"Lavanya.kashyap@kpit.com",
     //     text : "Hello this is text",
@@ -21,7 +22,8 @@ io.on('connection', (socket) => {
     //     console.log(`Recieved the new data ${JSON.stringify(newemail)}`);
     // })
     socket.on('CreateMessage', (messageDetails) => {
-        io.emit('newMessage', {from : messageDetails.from , text : messageDetails.text} ) 
+        // io.emit('newMessage', {from : messageDetails.from , text : messageDetails.text} );
+        // socket.broadcast.emit('newMessage', {from: messageDetails.from , text: messageDetails.text , createdAt : new Date().getTime});
 
     });
     // socket.emit('newMessage' , {from : "Server" , text : "Hello reciever" , createdAt : 1234987654});
